@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria, categorias } from '../../modelo/categoria.class';
+import { __await } from 'tslib';
+import { Categoria} from '../../modelo/categoria.class';
 import { GestionCategoriaservice } from './services/gestion-categoria.service';
 
 @Component({
@@ -10,22 +11,37 @@ import { GestionCategoriaservice } from './services/gestion-categoria.service';
 export class GestionCategoriaMainComponent implements OnInit {
 
   constructor(
-    private gestioncategoriaservice:GestionCategoriaservice,
+    public gestioncategoriaservice:GestionCategoriaservice,
+
     
   ) {
+    this.gestioncategoriaservice.listarCategoria()
    }
+  codcategoria:number=0
   nombreCategoria:String=""
   ngOnInit(): void {
   }
- categorias:Categoria[]=categorias
  
-  agregar(){
+  public agregar(){
     this.gestioncategoriaservice.agregarcategoria(this.nombreCategoria)
+    this.gestioncategoriaservice.listarCategoria();
+    this.gestioncategoriaservice.listarCategoria();
   }
   eliminacion:number[]=[]
   eliminar(){
     this.gestioncategoriaservice.eliminarcategoria(this.eliminacion)
     this.eliminacion=[]
+    this.gestioncategoriaservice.listarCategoria();
+    this.gestioncategoriaservice.listarCategoria();
+  }
+  actualizar(){
+    this.gestioncategoriaservice.actualizarCategoria(this.codcategoria,this.nombreCategoria)
+    this.gestioncategoriaservice.listarCategoria();
+    this.gestioncategoriaservice.listarCategoria();
+  }
+  actializarcategoria(categoria:Categoria){
+    this.codcategoria=categoria.codCategoria
+    this.nombreCategoria=categoria.nombreCategoria
   }
   
 

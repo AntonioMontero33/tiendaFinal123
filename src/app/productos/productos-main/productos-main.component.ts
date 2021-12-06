@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { productoslocal, ProductoLocal } from '../../modelo/productolocal.class';
 import { ProductoService } from '../services/producto.service';
-import { categorias, Categoria } from '../../modelo/categoria.class';
+import { Categoria } from '../../modelo/categoria.class';
+import { GestionCategoriaservice } from '../../gestion/gestion-categoria-main/services/gestion-categoria.service';
 
 @Component({
   selector: 'app-productos-main',
@@ -10,14 +11,14 @@ import { categorias, Categoria } from '../../modelo/categoria.class';
 })
 export class ProductosMainComponent implements OnInit {
 
-  constructor(public productoService:ProductoService) {   
+  constructor(public productoService:ProductoService,public gestioncategoriaservice:GestionCategoriaservice) {   
   }
 
 
   ngOnInit(): void {
   }
 
-  categorias:Categoria[]=categorias
+  categorias:Categoria[]=this.gestioncategoriaservice.categorias
 
     
 }

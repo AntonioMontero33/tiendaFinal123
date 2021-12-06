@@ -8,7 +8,7 @@ export class ReservaService{
   detallesreservas:DetalleReserva[]=detallesreservas
   
   get getproductos():DetalleReserva[]{
-      const detallesreservas= this.detallesreservas.filter(elemen => elemen.getReservas==reservaactiva[0]); 
+      const detallesreservas= this.detallesreservas.filter(elemen => elemen.getReservas.getcodReserva=='R0001'); 
       return detallesreservas
 
           

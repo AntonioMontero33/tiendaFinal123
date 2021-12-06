@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Categoria, categorias } from '../../modelo/categoria.class';
+import { Categoria} from '../../modelo/categoria.class';
 import { Router } from '@angular/router';
+import { GestionCategoriaservice } from '../../gestion/gestion-categoria-main/services/gestion-categoria.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  constructor(private route:Router) { }
-  categoriass:Categoria[]=categorias
+  constructor(private route:Router,public gestioncategoriaservice:GestionCategoriaservice) { }
+  categoriass:Categoria[]=this.gestioncategoriaservice.categorias
   
 
   ingresar(categoria:Categoria){

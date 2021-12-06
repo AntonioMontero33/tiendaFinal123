@@ -4,7 +4,6 @@ import { DetalleReserva, detallesreservas } from "src/app/modelo/detallereserva.
 import { ProductoLocal, productoslocal } from "src/app/modelo/productolocal.class";
 import { reservas } from "src/app/modelo/reserva.class";
 import { categoriaActiva } from '../../categoria/services/categoria.service';
-import { categorias } from '../../modelo/categoria.class';
 import { Producto, productos } from '../../modelo/producto.class';
 import { usuarioactivo, localactivo, adminactivo } from '../../login/login-main/services/login.service';
 import { Router } from '@angular/router';
@@ -16,7 +15,7 @@ productoslocal:ProductoLocal[]=productoslocal;
 productocategoria:Producto[]=productos
 
 agregar(productolocal:ProductoLocal){
-let nuevodetallereserva = new DetalleReserva('R0001',1,productolocal,reservas[0])   
+const nuevodetallereserva = new DetalleReserva('R0001',1,productolocal,reservas[0])   
 detallesreservas.push(nuevodetallereserva)
 }
 usuarioactivo=usuarioactivo

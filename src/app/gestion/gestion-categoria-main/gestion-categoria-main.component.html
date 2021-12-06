@@ -20,6 +20,25 @@
     
         </div>
     </form>
+    <form (ngSubmit)="actualizar()" action="">
+        <table class="col-s-12">
+            <tr>
+                <td><label for="id">codigo Categoria</label></td>
+                <td><input type="number"  id="codCategoria" disabled placeholder="codCategoria" name="codCategoria"
+                         [(ngModel)]="codcategoria"></td>
+            </tr>
+            <tr>
+                <td><label for="Nombre">Nombre</label></td>
+                <td><input type="text" id="Nombre" placeholder="Nombre" name="nombrecategoria"
+                         [(ngModel)]="nombreCategoria"></td>
+            </tr>
+            
+        </table>
+    
+        <div class="col-s-9 boton">
+            <button type="summit">Guardar Datos Nuevos</button>
+        </div>
+    </form>
     <form (ngSubmit)="eliminar()" action="">
         <div class="col-s-3 boton">
 
@@ -34,10 +53,11 @@
                     <th>Seleccion</th>
                 </tr>
             
-                <tr *ngFor="let categoria of categorias,let i=index">
-                    <td>{{categoria.getcodCategoria}}</td>
-                    <td>{{categoria.getnombreCategoria}}</td>
-                    <td><input type="checkbox"   (click)="eliminacion.unshift(i)"></td>
+                <tr *ngFor="let categoria of gestioncategoriaservice.categorias,let i=index">
+                    <td>{{categoria.codCategoria}}</td>
+                    <td>{{categoria.nombreCategoria}}</td>
+                    <td><button class="button" (click)="actializarcategoria(categoria)">Editar</button></td>
+                    <td><input type="checkbox"   (click)="eliminacion.unshift(categoria.codCategoria)"></td>
                 </tr>
             
                 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Gestionproductoservice } from './services/gestion-producto.service';
 import { productos, Producto } from '../../modelo/producto.class';
-import { Categoria, categorias } from '../../modelo/categoria.class';
+import { Categoria} from '../../modelo/categoria.class';
 import { Marca, marcas } from '../../modelo/marca.class';
+import { GestionCategoriaservice } from '../gestion-categoria-main/services/gestion-categoria.service';
 
 @Component({
   selector: 'app-gestion-producto-main',
@@ -12,7 +13,8 @@ import { Marca, marcas } from '../../modelo/marca.class';
 export class GestionProductoMainComponent implements OnInit {
 
   constructor(
-    private gestionproductoservice:Gestionproductoservice
+    private gestionproductoservice:Gestionproductoservice,
+    private gestioncategoriaservice:GestionCategoriaservice
   ) { }
   eliminacion:number[]=[]
   nombreProducto:string=""
@@ -21,10 +23,10 @@ export class GestionProductoMainComponent implements OnInit {
   volalcoholProducto:number=0
   imagenProducto:String=""
   marcaProducto:Marca=marcas[0]
-  categoriaProducto:Categoria=categorias[0]
+  categoriaProducto:Categoria=this.gestioncategoriaservice.categorias[0]
 
   marcas:Marca[]=marcas
-  categorias:Categoria[]=categorias
+  categorias:Categoria[]=this.gestioncategoriaservice.categorias
   productos:Producto[]=productos
   ngOnInit(): void {
   }
