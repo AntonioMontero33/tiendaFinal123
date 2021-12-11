@@ -10,25 +10,30 @@ import { GestionCategoriaMainComponent } from '../gestion-categoria-main.compone
 )
 export class GestionCategoriaservice{
     constructor(private http:HttpClient){}
-        agregarcategoria(nombreCategoria:String){
+        async agregarcategoria(nombreCategoria:String){
             const nuevacategoria:Categoria=new Categoria(0,nombreCategoria)
             this.http.post<Categoria[]>('http://localhost:8080/api/categoria',nuevacategoria).subscribe();
+            this.http.get<Categoria[]>('http://localhost:8080/api/categoria').subscribe((resp:Categoria[])=>{GestionCategoriaservice.categorias=resp});
             
     }
 
-    eliminarcategoria(eliminacion:number[]){
+    async eliminarcategoria(eliminacion:number[]){
         
         for(let i:number=0;eliminacion.length>i;i++){
             this.http.delete('http://localhost:8080/api/categoria'+'/'+eliminacion[i]).subscribe();
+
             
             
           }
     }
-    public categorias:Categoria[]=[];
-    listarCategoria(){
-        this.http.get<Categoria[]>('http://localhost:8080/api/categoria').subscribe((resp:Categoria[])=>{this.categorias=resp});
+    public static categorias:Categoria[]=[];
+    get categorias(){
+        return GestionCategoriaservice.categorias
     }
-    actualizarCategoria(codcategoria:number,nombreCategoria:String){
+    async listarCategoria(){
+        this.http.get<Categoria[]>('http://localhost:8080/api/categoria').subscribe((resp:Categoria[])=>{GestionCategoriaservice.categorias=resp});
+    }
+    async actualizarCategoria(codcategoria:number,nombreCategoria:String){
         const nuevacategoria:Categoria=new Categoria(codcategoria,nombreCategoria)
         this.http.put<any>('http://127.0.0.1:8080/api/categoria' + '/' + codcategoria, nuevacategoria).subscribe();
     }

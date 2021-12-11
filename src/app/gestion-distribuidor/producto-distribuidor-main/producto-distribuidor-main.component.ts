@@ -15,5 +15,6 @@ export class ProductoDistribuidorMainComponent implements OnInit {
   get getproductolocalservice(){
     return this.productolocalservice
   }
+  
  precio=0
 }

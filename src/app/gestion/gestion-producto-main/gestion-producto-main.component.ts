@@ -23,10 +23,10 @@ export class GestionProductoMainComponent implements OnInit {
   volalcoholProducto:number=0
   imagenProducto:String=""
   marcaProducto:Marca=marcas[0]
-  categoriaProducto:Categoria=this.gestioncategoriaservice.categorias[0]
+  categoriaProducto:Categoria=GestionCategoriaservice.categorias[0]
 
   marcas:Marca[]=marcas
-  categorias:Categoria[]=this.gestioncategoriaservice.categorias
+  categorias:Categoria[]=GestionCategoriaservice.categorias
   productos:Producto[]=productos
   ngOnInit(): void {
   }

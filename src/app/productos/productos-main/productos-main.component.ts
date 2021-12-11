@@ -18,7 +18,7 @@ export class ProductosMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  categorias:Categoria[]=this.gestioncategoriaservice.categorias
+  categorias:Categoria[]=GestionCategoriaservice.categorias
 
     
 }

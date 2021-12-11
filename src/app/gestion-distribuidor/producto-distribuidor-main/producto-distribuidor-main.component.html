@@ -32,21 +32,7 @@
                             <div class="price">
                                 <h2>Precio</h2>
                             </div>
-                            <div class="for">
-                                <form (ngSubmit)="getproductolocalservice.agregar(producto)" action="">
-                                    <label for="precio">Precio</label>
-                                        <input type="number"
-                                        class="col-s-12"                                       
-                                        id="precio" 
-                                        placeholder="Precio" 
-                                        name="precio"
-                                        [(ngModel)]="getproductolocalservice.precio">
-                                    <div class="enviar">
-                                        <button  type="submit">Agregar</button>
-                                    </div>
-                                    
-                                </form>
-                            </div>
+                            <app-producto-distrubuidor-precio [producto]="producto"></app-producto-distrubuidor-precio>
                         </div>
                 </div>
 

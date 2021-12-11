@@ -19,20 +19,16 @@ export class GestionDistribuidorService {
     productosenlocal.forEach(element => {
       productosfaltantes.push(element.getproducto)
     });
-    console.log(productoslocalfaltante)
-    console.log(productosfaltantes)
     result = productoslocalfaltante.filter(el => !productosfaltantes.includes(el))
-    console.log(result)
     return result
   }
   
   
-  precio:number=0
  
   
 
-  agregar(producto:Producto){
-    const nuevoproductolocal:ProductoLocal=new ProductoLocal("PL001",this.precio,localactivo[0],producto)
+  agregar(producto:Producto,precio:number){
+    const nuevoproductolocal:ProductoLocal=new ProductoLocal("PL001",precio,localactivo[0],producto)
     productoslocal.push(nuevoproductolocal)
   }
 

@@ -9,7 +9,7 @@ import { GestionCategoriaservice } from '../../gestion/gestion-categoria-main/se
 export class CategoriaService {
 
   constructor(private route:Router,public gestioncategoriaservice:GestionCategoriaservice) { }
-  categoriass:Categoria[]=this.gestioncategoriaservice.categorias
+  categoriass:Categoria[]=GestionCategoriaservice.categorias
   
 
   ingresar(categoria:Categoria){

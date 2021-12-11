@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { __await } from 'tslib';
-import { Categoria} from '../../modelo/categoria.class';
+import { Categoria } from '../../modelo/categoria.class';
 import { GestionCategoriaservice } from './services/gestion-categoria.service';
 
 @Component({
@@ -12,32 +11,36 @@ export class GestionCategoriaMainComponent implements OnInit {
 
   constructor(
     public gestioncategoriaservice:GestionCategoriaservice,
-
+    
+  
     
   ) {
     this.gestioncategoriaservice.listarCategoria()
    }
   codcategoria:number=0
   nombreCategoria:String=""
+   
+ 
   ngOnInit(): void {
+    
   }
  
-  public agregar(){
-    this.gestioncategoriaservice.agregarcategoria(this.nombreCategoria)
-    this.gestioncategoriaservice.listarCategoria();
-    this.gestioncategoriaservice.listarCategoria();
+  async agregar(){
+      this.gestioncategoriaservice.agregarcategoria(this.nombreCategoria)
+      this.gestioncategoriaservice.listarCategoria();
+      
+    
+    
   }
   eliminacion:number[]=[]
-  eliminar(){
-    this.gestioncategoriaservice.eliminarcategoria(this.eliminacion)
+  async eliminar(){
+    await this.gestioncategoriaservice.eliminarcategoria(this.eliminacion)
     this.eliminacion=[]
-    this.gestioncategoriaservice.listarCategoria();
-    this.gestioncategoriaservice.listarCategoria();
+    await this.gestioncategoriaservice.listarCategoria();
   }
-  actualizar(){
-    this.gestioncategoriaservice.actualizarCategoria(this.codcategoria,this.nombreCategoria)
-    this.gestioncategoriaservice.listarCategoria();
-    this.gestioncategoriaservice.listarCategoria();
+  async actualizar(){
+    await this.gestioncategoriaservice.actualizarCategoria(this.codcategoria,this.nombreCategoria)
+    await this.gestioncategoriaservice.listarCategoria();
   }
   actializarcategoria(categoria:Categoria){
     this.codcategoria=categoria.codCategoria
