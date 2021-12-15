@@ -3,14 +3,14 @@ import { Categoria } from './categoria.class';
 
 export class Producto{
     constructor(
-        private codProducto:String,
-        private nombreProducto:String,
-        private mililitrosProducto:number,
-        private descripcionProducto:String,
-        private volalcoholProducto:number,
-        private imagenProducto:String,
-        private marcaProducto:Marca,
-        private categoriaProducto:Categoria,
+        public codProducto:String,
+        public nombreProducto:String,
+        public mililitrosProducto:number,
+        public descripcionProducto:String,
+        public volalcoholProducto:number,
+        public imagenProducto:String,
+        public marcaProducto:Marca,
+        public categoriaProducto:Categoria,
     ){
         
     }

@@ -3,10 +3,10 @@ import { Producto, productos } from './producto.class';
 
 export class ProductoLocal{
     constructor(
-        private codProductoLocal:String,
-        private precioProductoLocal:number,
-        private localProductoLocal:Local,
-        private producto:Producto
+        public codProductoLocal:String,
+        public precioProductoLocal:number,
+        public tienelocal:Local,
+        public tieneProducto:Producto
     ){}
     get getcodProductoLocal(){
         return this.codProductoLocal
@@ -15,10 +15,10 @@ export class ProductoLocal{
         return this.precioProductoLocal
     }
     get getlocalProductoLocal(){
-        return this.localProductoLocal
+        return this.tienelocal
     }
     get getproducto(){
-        return this.producto
+        return this.tieneProducto
     }
 }
 const productolocal01=new ProductoLocal("PL0001",25,locales[1],productos[0])
